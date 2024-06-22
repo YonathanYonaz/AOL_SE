@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <img src="" alt="Profile Icon" id="profileIcon">
+        <h1 id="fullname"></h1>
+        <p id="email"></p>
+        <p id="age"></p>
+        <button class="logout-button" onclick="logout()">Log Out</button>
+        <button class="back-button" onclick="goBackToHome()">Back to Home</button>
+    </div>
+
+    <script>
+        function loadProfile() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                alert('You are not logged in. Redirecting to login page.');
+                window.location.href = 'register.html';
+                return;
+            }
+
+            const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+            if (userProfile) {
+                document.getElementById('fullname').textContent = userProfile.fullname;
+                document.getElementById('email').textContent = userProfile.email;
+                document.getElementById('age').textContent = userProfile.age + ' years old';
+                document.getElementById('profileIcon').src = 'user.png';
+            } else {
+                alert('No user profile found. Please register or login.');
+                window.location.href = 'register.html';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            alert("Logged out!");
+            window.location.href = 'login.html';
+        }
+
+        function goBackToHome() {
+            window.location.href = "home.html";
+        }
+
+        window.onload = loadProfile;
+    </script>
+</body>
+</html>

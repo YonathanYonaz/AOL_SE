@@ -1,0 +1,68 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Planow Workspace</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <aside class="sidebar">
+                <h1 class="logo">Planow</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="tasks.html">Tasks</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="submission.html">Submission</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <header>
+                    <div class="date">
+                        <p id="current-date"></p>
+                    </div>
+                    <div class="profile-icon">
+                        <a href="profile.html">
+                            <img src="user.png" alt="">
+                        </a>
+                    </div>
+                </header>
+                <section class="activities">
+                    <h2>My Activities</h2>
+                    <div class="task-section">
+                        <h3>To Do</h3>
+                        <table id="toDoTable">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="toDoTableBody">
+                                <!-- To Do tasks will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="task-section">
+                        <h3>Done</h3>
+                        <table id="doneTable">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="doneTableBody">
+                                <!-- Done tasks will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>

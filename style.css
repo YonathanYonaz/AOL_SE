@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f5fff5;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #d3f0d1;
+    width: 200px;
+    padding: 20px;
+    bottom: 0;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    color: #2d8f28;
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.sidebar nav ul li a.active {
+    font-weight: bold;
+    color: #2d8f28;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header .date p {
+    font-size: 18px;
+}
+
+header .profile-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.activities h2 {
+    margin-bottom: 20px;
+    color: #2d8f28;
+}
+
+.activities .task-section {
+    margin-bottom: 20px;
+}
+
+.activities .task-section h3 {
+    margin-bottom: 10px;
+    color: #2d8f28;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #2d8f28;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.add-task {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-task input, .add-task button {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #2d8f28;
+    border-radius: 5px;
+}
+
+.add-task button {
+    background-color: #2d8f28;
+    color: white;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #267822;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-controls button {
+    padding: 10px 15px;
+    border: 1px solid #2d8f28;
+    background-color: #2d8f28;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-controls button:hover {
+    background-color: #267822;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #2d8f28;
+    padding: 15px;
+    text-align: center;
+}
+
+.calendar td {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar td:hover {
+    background-color: #d3f0d1;
+}
+
+.calendar .empty {
+    background-color: #f0f0f0;
+    cursor: default;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list ul li {
+    background-color: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.submission {
+    margin-top: 20px;
+}
+
+.submission .task-block {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.submission .task-block header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.submission .task-block header h3 {
+    color: #2d8f28;
+}
+
+.submission .task-block .attachment {
+    margin-top: 10px;
+}
+
+.submission .task-block .attachment label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.submission .task-block .attachment input[type="file"] {
+    margin-top: 5px;
+}
+
+.submission .task-block .attachment p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.submission .task-block .attachment .file-info {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.submission .task-block .attachment .download-link {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #2d8f28;
+    cursor: pointer;
+}
+
+.submission .task-block .attachment .download-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve user profile from localStorage
+            const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+
+            // Check if user profile exists and credentials match
+            if (userProfile && userProfile.email === email && userProfile.password === password) {
+                // Set isLoggedIn to true and store in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Login successful!');
+                window.location.href = 'profile.html';
+            } else {
+                alert('Invalid email or password.');
+            }
+        }
+    </script>
+</body>
+</html>

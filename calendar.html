@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1 class="logo">Planow</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="tasks.html">Tasks</a></li>
+                    <li><a href="#" class="active">Calendar</a></li>
+                    <li><a href="submission.html">Submission</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="date">
+                    <p id="current-date"></p>
+                </div>
+                <div class="profile-icon">
+                    <a href="profile.html">
+                        <img src="user.png" alt="">
+                    </a>
+                </div>
+            </header>
+            <section class="activities">
+                <h2>Calendar</h2>
+                <div class="calendar-controls">
+                    <button onclick="prevMonth()">Previous</button>
+                    <span id="calendarMonthYear"></span>
+                    <button onclick="nextMonth()">Next</button>
+                </div>
+                <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendarBody">
+                        <!-- Calendar dates will be dynamically added here -->
+                    </tbody>
+                </table>
+                <div class="task-list">
+                    <h3>Tasks</h3>
+                    <ul id="taskList">
+                        <!-- Tasks will be displayed here based on selected date -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const calendarElement = document.getElementById('calendar');
+        const taskListElement = document.getElementById('taskList');
+        const selectedDateElement = document.getElementById('selectedDate');
+
+        function generateCalendar() {
+            const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayElement = document.createElement('div');
+                dayElement.textContent = i;
+                dayElement.dataset.date = new Date(new Date().getFullYear(), new Date().getMonth(), i).toISOString().split('T')[0];
+                dayElement.addEventListener('click', function() {
+                    showTasks(this.dataset.date);
+                });
+                calendarElement.appendChild(dayElement);
+            }
+        }
+
+        function showTasks(date) {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || {};
+            taskListElement.innerHTML = '';
+            selectedDateElement.textContent = date;
+            if (tasks[date]) {
+                tasks[date].forEach(task => {
+                    const taskItem = document.createElement('li');
+                    taskItem.textContent = task;
+                    taskListElement.appendChild(taskItem);
+                });
+            } else {
+                taskListElement.innerHTML = '<li>No tasks for this date.</li>';
+            }
+        }
+
+        generateCalendar();
+    </script>
+</body>
+</html>
